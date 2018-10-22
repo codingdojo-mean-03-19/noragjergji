@@ -1,8 +1,6 @@
-# Instructions
+# Assignments List
 
-`ng new` from the root of a given chapter.
-
-### Example
-
-Assuming your current working directory is: `01-integration`  
-Issue the following: `ng new anonymous-notes`
+1. Anonymous Notes
+2. Team Manager
+3. Github Battle
+4. Bicycle Marketplace (Belt Reviewer)
