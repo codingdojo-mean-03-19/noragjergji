@@ -41,3 +41,9 @@ temp.js
 # System Files
 .DS_Store
 Thumbs.db
+
+# archives
+*.zip
+*.rar
+*.tar
+*.gzip
