@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Thrones</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+
+        img{
+            width: 180px;
+            height: 110px;
+            border: 3px solid grey;
+        }
+
+        .container{
+            margin-left: 100px;
+        }
+        .img-loc{
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 30px;
+            padding: 5px;
+        }
+
+        .card{
+
+            display: inline-block;
+            width: 500px;
+            height: 350px;
+            margin-left: 220px;
+            padding: 5px;
+            border: 3px solid grey;
+        }
+
+        h2, h3, h4{
+            text-align: center;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.card').hide();
+            $('#house_stark').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/362', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.card').hide();
+            $('#house_targaryen').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/378', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.card').hide();
+            $('#house_lannister').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/229', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('.card').hide();
+            $('#house_baratheon').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/17', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Game of Thrones</h2>
+        <h3>Click on one of the houses</h3>
+        <div class="img-loc">
+            <img src="./gameofthrones/stark.jpg" alt="house_stark" id="house_stark">
+        </div>
+        <div class="img-loc">
+            <img src="./gameofthrones/targaryen.jpg" alt="house_targaryen" id="house_targaryen">
+        </div>
+        <div class="img-loc">
+            <img src="./gameofthrones/lannister.jpg" alt="house_lannister" id="house_lannister">
+        </div>
+
+        <div class="img-loc">
+            <img src="./gameofthrones/baratheon.png" alt="house_baratheon" id="house_baratheon">
+        </div>
+        <div class="card">
+            <h4>House details</h4>
+            <p class="card-name">NAME:</p><p id='name'></p>
+            <p class="card-content">WORDS:</p><p id='words'></p>
+            <p class="card-content">TITLES:</p><p id='titles'></p>
+        </div>
+    </div>
+</body>
+</html>
