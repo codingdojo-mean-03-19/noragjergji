@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <title>Dojo Query</title>
+</head>
+<body>
+    <button id="click_btn">Click</button>
+    <button id="hover_btn">Hover</button> 
+</body>
+<script>
+    function $Dojo(id) {
+        this.id = document.getElementById(id);
+        this.click = function (callback) {
+            this.id.addEventListener("click", callback);
+            };
+        this.hover = function (hoverin, hoverout) {
+            this.id.addEventListener("mouseover", hoverin);
+            this.id.addEventListener("mouseout", hoverout);
+            };
+    return this;
+    }  
+    $Dojo("click_btn").click(function() { console.log("The button was clicked!") });
+    $Dojo("hover_btn").hover(function() { console.log("The button was hovered on!") });
+</script> 
+</html>
