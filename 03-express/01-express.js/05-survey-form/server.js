@@ -21,7 +21,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/results', function(req, res){
-    res.render("result", {name: req.session.fname, ninja: req.session.ninja, location: req.session.location, language: req.session.language, comment: req.session.comment})
+    res.render("result", {ninja: req.session.ninja, location: req.session.location, language: req.session.language, comment: req.session.comment})
 })
 
 
