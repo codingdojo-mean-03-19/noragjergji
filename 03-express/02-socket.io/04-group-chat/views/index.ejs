@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+    <title>Chat Room</title>
+    <script>
+        $(document).ready(function(){
+            var socket = io();
+            var name = prompt('Enter your name:')
+
+            $('#msg-form').submit(function(e) {
+        		e.preventDefault();
+				socket.emit("posting_message", {name: name, content: $('#content').val()});
+            });
+           
+            socket.on('new_message', function (data){
+			    $('#msg').append('<div class = "new_msg">'+ data.name + ' says: ' + data.message +'</div>')
+			});
+        })
+    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h5>Use the space below to chat with other users.</h5>
+        <div class="messages" id="msg">          
+
+        </div>
+        <div class="new-message">
+            <form action="" id="msg-form">
+                <textarea name="content" cols="60" rows="50" id="content"></textarea>
+                <button type="submit" class="button-primary">Send</button>
+            </form>
+        </div>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+.container{
+    text-align: center;
+}
+
+.messages{
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.new-message{
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.new_msg{
+    text-align: left;
+    border: 1px grey solid;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    padding: 1px;
+}
+
+textarea{
+    margin-left: 25px;
+    width: 420px;
+    height: 100px;
+}
