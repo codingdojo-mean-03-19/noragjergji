@@ -30,7 +30,7 @@ app.post('/quotes', function(req, res){
 });
 
 app.get('/quotes', function(req, res){
-    User.find({}, (err, users) => {
+    User.find({}, function(err, users){
         if (err) {
             console.log(err);
         } else {
