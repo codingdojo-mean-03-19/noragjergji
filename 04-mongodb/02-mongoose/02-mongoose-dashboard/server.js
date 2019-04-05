@@ -54,13 +54,21 @@ app.get('/sloth/edit/:id', function(req, res){
     });
 })
 
-app.post('/sloth/:id', (req, res) => {
+app.post('/sloth/:id', function(req, res){
     var id = req.params.id;
     Sloth.update({ _id: id},function(err, sloth){
         if(err){console.log(err)};
         res.redirect('/');
     });
 });
+
+app.post('/sloth/destroy/:id', function(req, res){
+    var id = req.params.id;
+    Sloth.remove({ _id: id},function(err, sloth){
+        if(err){console.log(err)};
+        res.redirect('/');
+    });
+})
 
 app.listen(8000, function(){
     console.log("listening on port 8000");
