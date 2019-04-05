@@ -12,24 +12,13 @@
         <h1>Welcome to Slothtopia!</h1>
         <h3>Choose your Sloth!</h3>
         <table class="u-full-width">
+            <% sloths.forEach(function(sloth) {%>
             <tr>
-                <th><a href="">Sloth 1</a></th>
-                <th><a href="">Sloth 2</a></th>
-                <th><a href="">Sloth 3</a></th>
+                <th><a href="/sloth/<%= sloth._id %>"><%= sloth.name %></a></th>
             </tr>
-            <tr>
-                <th><a href="">Sloth 4</a></th>
-                <th><a href="">Sloth 5</a></th>
-                <th><a href="">Sloth 6</a></th>
-            </tr>
-            <tr>
-                <th><a href="">Sloth 7</a></th>
-                <th><a href="">Sloth 8</a></th>
-                <th><a href="">Sloth 9</a></th>
-            </tr>
+            <% }); %>
         </table>
-
-    </div>
-    
+    <a href="/sloth/new" class="button button-primary">Add a new Sloth!</a>
+    </div>   
 </body>
 </html>

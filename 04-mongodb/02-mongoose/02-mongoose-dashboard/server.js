@@ -21,8 +21,46 @@ mongoose.model('Sloth', SlothSchema);
 const Sloth = mongoose.model('Sloth');
 
 app.get('/', function(req, res){
-    res.render("index");
+    Sloth.find({}, function(err, sloths){
+        if(err){console.log(err)};
+        res.render("index", {sloths});
+    });
+});
+
+app.get('/sloth/new', function(req, res){
+    res.render("new")
 })
+
+app.post('/sloths', function(req, res){
+    Sloth.create(req.body, function (err) {
+        if (err) { console.log(err); }
+        res.redirect('/');
+    });
+});
+
+app.get('/sloth/:id', function(req, res){
+    var id = req.params.id;
+    Sloth.find({ _id: id},function(err, sloth){
+        if(err){console.log(err)};
+        res.render("show_one", {sloth});
+    });
+})
+
+app.get('/sloth/edit/:id', function(req, res){
+    var id = req.params.id;
+    Sloth.find({ _id: id},function(err, sloth){
+        if(err){console.log(err)};
+        res.render("edit", {sloth});
+    });
+})
+
+app.post('/sloth/update/:id', (req, res) => {
+    var id = req.params.id;
+    Sloth.update({ _id: id},function(err, sloth){
+        if(err){console.log(err)};
+        res.redirect('/');
+    });
+});
 
 app.listen(8000, function(){
     console.log("listening on port 8000");

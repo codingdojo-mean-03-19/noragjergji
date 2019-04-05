@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <title>Add a new sloth!</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Add a new sloth!</h2>
+        <form action="/sloths/" method="post">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="<%= sloth.name %>">
+            <label for="toes">Number of toes</label>
+            <input type="number" name="toes" value="<%= sloth.toes %>">
+            <label for="species">Species</label>
+            <input type="text" name="species" value="<%= sloth.species %>">
+            <label for="description">Description</label>
+            <textarea name="description" id="" cols="30" rows="10"><%= sloth.description %></textarea>
+            <a href="/sloth/update/<%= sloth._id %>">Save</a>
+        </form>
+    </div>   
+</body>
+</html>
