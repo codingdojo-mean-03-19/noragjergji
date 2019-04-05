@@ -54,7 +54,7 @@ app.get('/sloth/edit/:id', function(req, res){
     });
 })
 
-app.post('/sloth/update/:id', (req, res) => {
+app.post('/sloth/:id', (req, res) => {
     var id = req.params.id;
     Sloth.update({ _id: id},function(err, sloth){
         if(err){console.log(err)};
