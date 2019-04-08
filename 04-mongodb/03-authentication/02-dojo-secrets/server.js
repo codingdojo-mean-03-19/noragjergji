@@ -43,11 +43,12 @@ app.get('/', function(req, res){
 
 app.get('/secrets', function(req, res){
     if(req.session.user_id){ 
-        User.findOne({_id:req.session.user_id}, function(err,user){
-            res.render('secret', {users:users}); 
-        })
+        Secret.find({}, function(err, response){
+            if(err){console.log(err)};
+            res.render("secret", {response});
+        });
     }
-    else {res.redirect('/'); }
+    else {res.redirect('/secrets'); }
 })
 
 //Registration 
@@ -93,31 +94,12 @@ app.post('/login', function(req,res){
     });
 })
 
-app.post('/secrets', function(req, res){
-    var secret = new Secret({
-        content: req.body.content,
-        creator: User.findOne({_id:req.session.user_id})
-    })
-    Secret.create(req.body, function(err,data){
-        if(err){
-            console.log('Could not post the message!');
-            for(var key in err.errors){
-                req.flash('registration', err.errors[key].secret);
-            }
-            res.redirect('/secrets');
-       }
-       else {
-            User.findOneAndUpdate({_id: req.session.user_id}, {$push: {secret: data}}, function(err, data){
-                 if(err){
-                      // handle the error from trying to update the user
-                 }
-                 else {
-                    console.log('Posted the message!');
-                    res.redirect('/secrets');
-                 }
-            })
-        }
-    })
+app.post('/secret', function(req, res){
+    console.log(req.body)
+    Secret.create(req.body, function (err) {
+        if (err) { console.log(err); }
+        res.redirect('/secrets');
+    });
 })
 
 app.get('/logout', function(req,res){
