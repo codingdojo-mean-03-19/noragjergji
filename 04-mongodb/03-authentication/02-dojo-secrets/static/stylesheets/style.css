@@ -1,0 +1,12 @@
+.scrt{
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}

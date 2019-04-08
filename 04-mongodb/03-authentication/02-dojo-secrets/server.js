@@ -42,13 +42,10 @@ app.get('/', function(req, res){
 })
 
 app.get('/secrets', function(req, res){
-    if(req.session.user_id){ 
-        Secret.find({}, function(err, response){
-            if(err){console.log(err)};
-            res.render("secret", {response});
-        });
-    }
-    else {res.redirect('/secrets'); }
+    Secret.find({}, function(err, response){
+        if(err){console.log(err)};
+        res.render("secret", {response});
+    })
 })
 
 //Registration 
