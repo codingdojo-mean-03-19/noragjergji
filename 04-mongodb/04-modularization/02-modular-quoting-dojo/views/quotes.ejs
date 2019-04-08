@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"/>
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are the awesome quotes!</h1>
+        <% users.forEach(function(user) { %>
+            <h4><%= user.quote %></h4>
+            <h5><%= user.name %> at <%= user.createdAt.toDateString() %></h5>       
+        <% }); %>
+    </div>    
+</body>
+</html>
