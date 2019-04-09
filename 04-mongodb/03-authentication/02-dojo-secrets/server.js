@@ -1,5 +1,3 @@
-//commenting session is missing, for now
-
 const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
@@ -131,6 +129,7 @@ app.post('/comments/:id', function(req, res){
 })
 
 app.get('/logout', function(req,res){
+    //console.log(req.session)
     req.session.destroy();
     res.redirect('/');
 })

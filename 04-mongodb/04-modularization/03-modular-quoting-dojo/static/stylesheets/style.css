@@ -1,0 +1,28 @@
+.container{
+    margin-top: 100px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#my_form{
+    text-align: left;
+    margin-left: 300px;
+}
+
+textarea{
+    width: 350px;
+    height: 150px;
+}
+
+h4{
+    margin-left: 300px;
+    text-align: left;
+    color: grey;
+}
+
+h5{
+    margin-right: 300px;
+    text-align: right;
+    color: blue;
+}
