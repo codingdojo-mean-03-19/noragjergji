@@ -1,3 +1,5 @@
+//commenting session is missing, for now
+
 const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
@@ -21,8 +23,13 @@ app.set('view engine', 'ejs');
 
 mongoose.connect('mongodb://localhost/secrets_db',{useNewUrlParser: true});
 
+const commentSchema = new mongoose.Schema({
+    com_content: {type: String}
+}, {timestamps: true})
+
 const secretSchema = new mongoose.Schema({
-    content: {type: String, required: [true, 'Secret Field is required'], minlength: 15}
+    content: {type: String, required: [true, 'Secret Field is required'], minlength: 15},
+    comments: [commentSchema]
 }, {timestamps: true});
 
 const userSchema = new mongoose.Schema({
@@ -34,6 +41,7 @@ const userSchema = new mongoose.Schema({
     secrets: [secretSchema]
 }, {timestamps: true});
 
+var Comment = mongoose.model('Comment', commentSchema)
 var User = mongoose.model('User', userSchema); 
 var Secret = mongoose.model('Secret', secretSchema);
 
@@ -44,7 +52,8 @@ app.get('/', function(req, res){
 app.get('/secrets', function(req, res){
     Secret.find({}, function(err, response){
         if(err){console.log(err)};
-        res.render("secret", {response});
+        console.log(req.session.user_id);
+        res.render("secret", {response, user_id: req.session.user_id});
     })
 })
 
@@ -92,11 +101,33 @@ app.post('/login', function(req,res){
 })
 
 app.post('/secret', function(req, res){
-    console.log(req.body)
     Secret.create(req.body, function (err) {
         if (err) { console.log(err); }
         res.redirect('/secrets');
     });
+})
+
+app.get('/comment/:id', function(req, res){
+    var secret_id = req.params.id;
+    Secret.find({_id : secret_id}, function(err, secret){
+        if(err){console.log(err)}
+        res.render('comment', {secret: secret[0]})
+    })
+})
+
+app.post('/comments/:id', function(req, res){
+    console.log(req.body)
+    var secret_id = req.params.id;
+    Secret.findOne({_id: secret_id}, function(err){
+        var newComment = new Comment({com_content: req.body.comment});
+        Secret.update({_id: secret_id}, {$push: {comments: newComment}}, function(err){
+            if(err){console.log(err)}
+        })
+        newComment.save(function(err){
+            if (err){console.log(err)}
+            return res.redirect('/comment/' + secret_id)
+        })
+    })
 })
 
 app.get('/logout', function(req,res){
