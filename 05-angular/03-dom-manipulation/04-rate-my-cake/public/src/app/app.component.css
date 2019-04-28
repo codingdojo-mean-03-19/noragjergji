@@ -1,0 +1,33 @@
+.new-cake{
+    display: inline-block;
+    border: 1px solid black;
+    vertical-align: top;
+    padding: 20px;
+}
+
+.all-cakes{
+    display: inline-block;
+    width: auto;
+    height: 200px;
+    margin-left: 20px;
+    border: 1px solid black;
+    overflow: scroll;
+    padding: 40px;
+}
+
+.cake-pic{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cake-comment{
+    padding-left: 10px;
+    width: 200px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+img{
+    width: 150px;
+
+}

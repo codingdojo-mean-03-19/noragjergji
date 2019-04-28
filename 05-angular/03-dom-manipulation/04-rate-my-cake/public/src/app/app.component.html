@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Rate my cake!</h1>
+  <div class="new-cake">
+      <legend> Submit a cake to be rated! </legend>
+      <form (submit)='onSubmit($event, cakeForm)' #cakeForm = 'ngForm'>
+        <label for="">Baker Name</label>
+        <input type="text" name="baker_name" id="" [(ngModel)]='cake.baker_name' required>
+        <label for="">Image Url</label>
+        <input type="url" name="url" id="" [(ngModel)]='cake.url' required>
+        <button *ngIf = 'cakeForm.valid' type="submit" class="button-primary">Submit</button>
+      </form>
+  </div>
+  <div class="all-cakes">
+    <div *ngFor = 'let cake of cakes'>
+      <div class="cake-pic">
+        <h5>{{cake.baker_name}}'s Cake!</h5>
+        <img src="../assets/{{cake.url}}" alt="{{cake.baker_name}}'s cake'"><br><br>
+      </div>
+      <div class="cake-comment">
+        <form action="">
+          <select name="rating" id="">
+            <option value="five">Five Stars</option>
+            <option value="four">Four Stars</option>
+            <option value="three">Three Stars</option>
+            <option value="two">Two Stars</option>
+            <option value="one">One Star</option>
+          </select>
+          <textarea name="comment" id="" cols="30" rows="10">Your comment here</textarea>
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
