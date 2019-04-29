@@ -27,6 +27,17 @@
     vertical-align: middle;
 }
 
+.single-cake{
+    width: 700px;
+    height: auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+#slctd{
+    width: 230px;
+}
+
 img{
     width: 150px;
 

@@ -11,7 +11,7 @@
       </form>
   </div>
   <div class="all-cakes">
-    <div *ngFor = 'let cake of cakes'>
+    <div *ngFor = 'let cake of cakes' (click)='onSelect(cake)'>
       <div class="cake-pic">
         <h5>{{cake.baker_name}}'s Cake!</h5>
         <img src="../assets/{{cake.url}}" alt="{{cake.baker_name}}'s cake'"><br><br>
@@ -25,11 +25,15 @@
             <option value="two">Two Stars</option>
             <option value="one">One Star</option>
           </select>
+          <input type="hidden" name="id" value="{{cake.id}}">
           <textarea name="comment" id="" cols="30" rows="10">Your comment here</textarea>
           <button>Submit</button>
         </form>
       </div>
     </div>
-
+  </div>
+  <div class="single-cake" *ngIf = 'selectedCake'>
+    <h5>Baked by {{selectedCake.baker_name}}</h5>
+    <img src="../assets/{{selectedCake.url}}" alt="" id="slctd"> 
   </div>
 </div>

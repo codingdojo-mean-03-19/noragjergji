@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
+import { CAKES } from './data'
 import { Cake } from './models';
 
 @Component({
@@ -10,7 +12,8 @@ import { Cake } from './models';
 export class AppComponent {
   title = 'public';
   cake = new Cake();
-  cakes: Cake[] = [];
+  cakes: Cake[] = CAKES;
+  selectedCake: Cake;
 
   onSubmit(event: Event, form: NgForm){
     event.preventDefault();
@@ -22,4 +25,8 @@ export class AppComponent {
     form.reset();
   }
 
+  onSelect(cake: Cake){
+    console.log('selecting', cake)
+    this.selectedCake = this.selectedCake === cake ? null : cake; 
+  }
 }
