@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+#container {
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+img {
+    width: 240px;
+}
+
+h2 {
+    font-size: 30pt;
+    width: 100%;
+    padding: 5px;
+}
+#weather-data, #image {
+    width: 35%;
+    padding: 5px;
+    min-width: 200px;
+}

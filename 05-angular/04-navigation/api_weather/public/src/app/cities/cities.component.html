@@ -1,0 +1,30 @@
+<div id="container">
+    <h2>{{ weather.name }}</h2>
+    <div id="weather-data">
+        <p>Humidity: {{ weather.main.humidity}}%</p>
+        <p>Temperature (Average): {{ weather.main.temp}}°F</p>
+        <p>Temperature (High): {{ weather.main.temp_max}}°F</p>
+        <p>Temperature (Low): {{ weather.main.temp_min}}°F</p>
+        <p>Status: {{ weather.weather[0].description}}</p>
+    </div>
+    <div id="image">
+        <p *ngIf="weather.id == 4140963">
+        <img src="../../assets/washington-dc.jpg" alt="Washington">
+        </p>
+        <p *ngIf="weather.id == 4885983">
+        <img src="../../assets/burbank.jpg" alt="Burbank">
+        </p>
+        <p *ngIf="weather.id == 4887398">
+        <img src="../../assets/chicago.jpg" alt="Chicago">
+        </p>
+        <p *ngIf="weather.id == 4190598">
+        <img src="../../assets/dallas.jpg" alt="Dallas">
+        </p>
+        <p *ngIf="weather.id == 5392171">
+        <img src="../../assets/sanjose.jpg" alt="San Jose">
+        </p>
+        <p *ngIf="weather.id == 5809844">
+        <img src="../../assets/seattle.jpg" alt="Seattle">
+        </p>
+    </div>
+</div>
