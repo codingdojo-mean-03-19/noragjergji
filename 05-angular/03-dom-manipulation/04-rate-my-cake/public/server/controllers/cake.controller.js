@@ -1,4 +1,5 @@
 const Cake = require('mongoose').model('Cake');
+const Comment = require('mongoose').model('Comment')
 const {Http} = require('@status/codes')
 
 module.exports = {
@@ -17,6 +18,10 @@ module.exports = {
                 response.status(Http.UnprocessableEntity).json(errors);
             })
     },
+    // newComment(request, response){
+    //     const {comment_id : commentId} = request.params;
+
+    // },
     //show a particular cake
     show(request, response){
         const {cake_id: cakeId} = request.params;

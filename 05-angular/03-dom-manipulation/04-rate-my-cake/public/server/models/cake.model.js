@@ -15,4 +15,16 @@ const CakeSchema = new Schema({
     }    
 },{timestamps: true});
 
+const CommentSchema = new Schema({
+    comment: {
+        type: String,
+        trim: true
+    },
+    rating: {
+        type: String,
+        trim: true
+    }
+},{timestamps: true});
+
 module.exports = mongoose.model('Cake', CakeSchema);
+module.exports = mongoose.model('Comment', CommentSchema);
