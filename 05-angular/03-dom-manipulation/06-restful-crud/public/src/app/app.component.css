@@ -1,0 +1,21 @@
+.task-list{
+    display:inline-block; 
+    margin-right: 150px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.edit-task{
+    display:inline-block; 
+    vertical-align:top; 
+    width: 400px;
+}
+
+.solo-task{
+    border:1px solid black; 
+    border-radius:10px; 
+    width:300px; 
+    padding:10px; 
+    margin:5px
+};
+
