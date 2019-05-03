@@ -1,0 +1,23 @@
+<div class="container" >
+  <h4>Authors list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let author of authors' (click)='onSelect(author)' [routerLink]="['authors', author._id]">
+        <td>{{ author.name }}</td>
+        <td>
+          <button class="button-primary" (click)='onDelete($event, author)'>Delete</button> 
+          <button class="button-primary" [routerLink]="['authors/edit', author._id]" (editAuthor)='onEdit($event)'>Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="button-primary" [routerLink]="['authors/new']" (createAuthor)='onCreate($event)'>Add author</button>
+
+</div>

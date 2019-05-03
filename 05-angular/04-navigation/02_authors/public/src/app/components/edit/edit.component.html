@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Edit author</h2>
+  <form (submit)="onSubmit($event, form)" #authorForm='ngForm'>
+      <label for="name" >First name:</label>
+      <input type="text" name='firstName' class="form-control" id="fname" value='{{author?.firstName}}' [(ngModel)]="author.firstName" required>
+    <button type="submit" class="button-primary">Update author</button>
+    <button type="button" [routerLink]="['/']">Go back</button>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<h3>New Author</h3>     
+
+<form (submit)='onSubmit($event,authorForm)' #authorForm='ngForm'>
+  <div class="form-group">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="name" [(ngModel)]='author.name' required>
+  </div>
+  <button type="submit" class="button-primary" [disabled]='authorForm.invalid'>Add</button>
+  <button type="button" [routerLink]="['/']">Go back</button>
+</form>
+
+<hr>
