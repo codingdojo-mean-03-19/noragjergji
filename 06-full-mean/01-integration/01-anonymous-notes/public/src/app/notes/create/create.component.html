@@ -1,0 +1,6 @@
+<div class="new-note">
+    <form (submit)='onSubmit($event)' #noteForm = 'ngForm'>
+      <input type="text" name="content" id="note" [(ngModel)] = 'note.content' required>
+      <button class="button-primary">Add Note</button>
+    </form>
+</div>

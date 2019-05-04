@@ -1,0 +1,12 @@
+.new-note{
+    padding: 10px;
+    display: inline-block;
+    width: 600px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#note{
+    width: 400px;
+}

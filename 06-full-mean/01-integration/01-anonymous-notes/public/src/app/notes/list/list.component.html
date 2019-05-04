@@ -1,0 +1,7 @@
+<app-create (createNote)='onCreate($event)'></app-create>
+<div class="all-notes">
+    <div class="single-note" *ngFor = 'let note of notes'>
+        <p>Posted on: <span >{{note.date | date:'dd/MM/yyyy à HH:mm'}}</span></p>
+        <h5>{{note.content}}</h5>
+    </div>
+</div>
