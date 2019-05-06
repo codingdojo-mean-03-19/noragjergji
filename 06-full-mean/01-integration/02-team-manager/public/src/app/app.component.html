@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="new-player">
+    <h1>Add Player</h1>
+    {{playerForm.value | json}}
+   <form (submit)='onSubmit($event, playerForm)' #playerForm = 'ngForm'>
+     <div>
+       <label for="name">Player Name</label>
+        <input type="text" name="name" [(ngModel)] = 'player.name' required>
+      </div>
+     <div>
+       <label for="position">Preferred Position</label>
+        <input type="text" name="position" [(ngModel)] = 'player.position'>
+      </div>
+      <button *ngIf = 'playerForm.valid'>Submit</button>
+   </form>
+  </div>
+  <div class="player-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Player Position</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let player of players'>
+          <td>{{ player.name }}</td>
+          <td>{{ player.position  }}</td>
+          <td><button id = 'red-button'>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
