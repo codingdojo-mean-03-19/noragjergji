@@ -1,3 +1,15 @@
-<p>
-  player-create works!
-</p>
+<div class="new-player">
+    <h1>Add Player</h1>
+    <!-- {{playerForm.value | json}} -->
+   <form (submit)='onSubmit($event, playerForm)' #playerForm = 'ngForm'>
+     <div>
+       <label for="name">Player Name</label>
+        <input type="text" name="name" [(ngModel)] = 'player.name' required>
+      </div>
+     <div>
+       <label for="position">Preferred Position</label>
+        <input type="text" name="position" [(ngModel)] = 'player.position'>
+      </div>
+      <button *ngIf = 'playerForm.valid'>Submit</button>
+   </form>
+  </div>

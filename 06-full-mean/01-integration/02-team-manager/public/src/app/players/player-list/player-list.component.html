@@ -1,3 +1,19 @@
-<p>
-  player-list works!
-</p>
+<app-player-create (createPlayer)='onCreate($event)'></app-player-create>
+<div class="player-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Player Position</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let player of players'>
+          <td>{{ player.name }}</td>
+          <td>{{ player.position  }}</td>
+          <td><button id = 'red-button'>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

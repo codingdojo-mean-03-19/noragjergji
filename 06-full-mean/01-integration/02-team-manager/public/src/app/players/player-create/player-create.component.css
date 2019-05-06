@@ -1,0 +1,8 @@
+.new-player{
+    display: inline-block;
+    border: 3px solid black;
+    width: 800px;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+}
