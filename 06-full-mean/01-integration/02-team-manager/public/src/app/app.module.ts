@@ -4,21 +4,24 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
-import { PlayerListComponent } from './players/player-list/player-list.component';
-import { PlayerCreateComponent } from './players/player-create/player-create.component';
-import { PlayerStatusComponent } from './players/player-status/player-status.component';
+import { AppRoutingModule } from './app-routing.module'
+import * as fromPlayers from './players';
+import { NavComponent } from './nav/nav.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerListComponent,
-    PlayerCreateComponent,
-    PlayerStatusComponent
+    ...fromPlayers.components,
+    NavComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

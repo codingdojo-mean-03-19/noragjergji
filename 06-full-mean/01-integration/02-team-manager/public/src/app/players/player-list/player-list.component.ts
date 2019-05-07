@@ -35,7 +35,6 @@ export class PlayerListComponent implements OnInit, OnDestroy {
 
         this.players.push(createdPlayer);
       })
-    // this.players.push(player);
   }
 
   onDelete(event: Event, player: Player){

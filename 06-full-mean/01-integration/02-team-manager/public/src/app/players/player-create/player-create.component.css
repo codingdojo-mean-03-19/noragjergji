@@ -1,8 +1,16 @@
 .new-player{
     display: inline-block;
-    border: 3px solid black;
-    width: 800px;
+    border: 1px solid black;
+    width: 900px;
     height: auto;
     padding: 20px;
     text-align: center;
+}
+
+ul li {
+    display: inline;
+}
+
+.navigation ul{
+    text-align: left;
 }

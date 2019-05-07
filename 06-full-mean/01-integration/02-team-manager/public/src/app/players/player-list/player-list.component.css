@@ -2,3 +2,23 @@
     background-color: red;
     color: white;
 }
+
+.player-list{
+    border: 1px solid black;
+    width: 900px;
+    height: auto;
+    padding: 30px;
+}
+
+.navigation ul{
+    text-align: left;
+}
+
+table{
+    margin-left: 250px;
+}
+
+ul li {
+    display: inline;
+}
+

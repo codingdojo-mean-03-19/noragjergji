@@ -1,6 +1,12 @@
+
 <div class="new-player">
-    <h1>Add Player</h1>
-    <!-- {{playerForm.value | json}} -->
+    <div class="navigation">
+        <ul>
+          <li><a routerLink="/">List</a></li> | 
+          <li><a routerLink="/players/create">Add a New Player</a></li>
+        </ul>
+      </div>
+    <h1>Add a new Player</h1>
    <form (submit)='onSubmit($event, playerForm)' #playerForm = 'ngForm'>
      <div>
        <label for="name">Player Name</label>
