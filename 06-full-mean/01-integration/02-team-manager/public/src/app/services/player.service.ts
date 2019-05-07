@@ -17,7 +17,6 @@ export class PlayerService {
 
   }
 
-  
   createPlayer( player: Player): Observable<Player> {
     return this.http.post<Player>(this.base, player);
   }

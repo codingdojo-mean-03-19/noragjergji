@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Player Status, Game 1</h1>
+    <div class="game-list">
+        <div class="navigation">
+          <ul>
+            <li><a routerLink="/players/game1">Game 1</a></li> | 
+            <li><a routerLink="/players/game2">Game 2</a></li> |
+            <li><a routerLink="/players/game3">Game 3</a></li>
+          </ul>
+        </div>
+  
+      <table>
+        <thead>
+          <th>Player Name</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor='let player of players'>
+            <td>{{ player.name }}</td>
+            <td>
+              <button (click) = 'onPlays1($event, player)' [ngClass]="player.status1=='Playing' ? 'green-button' : 'plain'">Playing</button>
+              <button (click) = 'onDoesnt1($event, player)' [ngClass]="player.status1=='Not Playing' ? 'red-button' : 'plain'">Not Playing</button>
+              <button (click) = 'onUndecided1($event, player)' [ngClass]="player.status1=='Undecided' ? 'yellow-button' : 'plain'">Undecided</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

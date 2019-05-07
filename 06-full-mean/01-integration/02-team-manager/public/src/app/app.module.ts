@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'
 import * as fromPlayers from './players';
 import { NavComponent } from './nav/nav.component';
+import { Game2Component } from './players/game2/game2.component';
+import { Game3Component } from './players/game3/game3.component';
+import { Game1Component } from './players/game1/game1.component';
 
 
 
@@ -15,6 +18,9 @@ import { NavComponent } from './nav/nav.component';
     AppComponent,
     ...fromPlayers.components,
     NavComponent,
+    Game2Component,
+    Game3Component,
+    Game1Component,
 
   ],
   imports: [

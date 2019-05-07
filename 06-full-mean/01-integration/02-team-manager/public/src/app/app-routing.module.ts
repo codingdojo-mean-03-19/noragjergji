@@ -17,8 +17,16 @@ const routes: Routes = [
         component: fromPlayers.PlayerListComponent
     },
     {
-        path: 'players/status',
-        component: fromPlayers.PlayerStatusComponent
+        path: 'players/game1',
+        component: fromPlayers.Game1Component
+    },
+    {
+        path: 'players/game2',
+        component: fromPlayers.Game2Component
+    },
+    {
+        path: 'players/game3',
+        component: fromPlayers.Game3Component
     }
 
 ];

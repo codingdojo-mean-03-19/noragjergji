@@ -12,7 +12,17 @@ const PlayerSchema = new Schema({
         type: String,
         trim: true       
     },
-    status: {
+    status1: {
+        type: String,
+        trim: true,
+        default: 'Undecided'
+    },
+    status2: {
+        type: String,
+        trim: true,
+        default: 'Undecided'
+    },
+    status3: {
         type: String,
         trim: true,
         default: 'Undecided'
