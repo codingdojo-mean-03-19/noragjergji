@@ -1,0 +1,23 @@
+<!-- <app-new (createProduct)='onCreate($event)'></app-new> -->
+<div class="product-list">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = 'let product of products' (click)='onSelect(product)' [routerLink]="['products', product._id]">
+                <td>{{product.name}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.price}}</td>
+                <td><button>Edit</button><button (click) = 'onDelete($event, product)'>Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <app-details [product]='selectedProduct'></app-details> -->

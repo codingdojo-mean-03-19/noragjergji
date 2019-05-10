@@ -1,0 +1,12 @@
+<div class="add-product">
+    <h3>New Product</h3>
+    <form (submit)='onSubmit($event)' #productForm = 'ngForm'>
+      <label for="name">Product Name</label>
+      <input type="text" name="name" id="" [(ngModel)]='product.name' required>
+      <label for="quantity">Quantity</label>
+      <input type="number" name="quantity" id="" [(ngModel)]='product.quantity' required>
+      <label for="price">Price</label>
+      <input type="number" name="price" id="" [(ngModel)]='product.price' required>
+      <button *ngIf='productForm.valid'>Add</button>
+    </form>
+  </div>
